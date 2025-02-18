@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEILOEIROS</title>
+</head>
+<body>
+
+<ul>
+    {% for leiloiro in leiloeiros %}
+        <li>{{ leiloiro.id_leiloeiro }} - {{ leiloiro.nome }} <a href="{% url 'editar' leiloeiro.nome}"> Editar </a></li>
+    {% endfor %}
+</ul>
+
+<form action="{% url 'cadastro' %}" method="POST">
+    {% csrf_token %}
+    Nome <input type="text" name="nome">
+    <br><br>
+    CPF <input type="text" name="cpf">
+    <br><br>
+    E-Mail <input type="text" name="email">
+    <br><br>
+    Telefone <input type="text" name="telefone">
+    <br><br>
+    Site <input type="text" name="site">
+    <br><br>
+    Matrícula <input type="text" name="matricula">
+    <br><br>
+    <button type="submit">Cadastrar</button>
+</form>
+    
+</body>
+</html>
